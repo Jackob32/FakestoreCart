@@ -9,7 +9,7 @@ export const App = () => {
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
+            .then(res => res.json())
             .then((data) => setProducts(data))
     }, []);
     const handleAddToCart = (product: Product) => {
@@ -22,12 +22,16 @@ export const App = () => {
     };
     return <>
         <div className="App">
+            <nav className="navbar navbar-light bg-light">
+                <h1> Fakestore Cart
+                </h1>
+            </nav>
             <div className="row">
                 <div className="col-md-6">
-                    <ProductTable products={products} handleAddToCart={handleAddToCart} />
+                    <ProductTable products={products} handleAddToCart={handleAddToCart}/>
                 </div>
                 <div className="col-md-6">
-                    <ProductCart cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart} />
+                    <ProductCart cartItems={cartItems} handleRemoveFromCart={handleRemoveFromCart}/>
                 </div>
             </div>
         </div>
