@@ -12,11 +12,13 @@ export const App = () => {
             .then(res=>res.json())
             .then((data) => setProducts(data))
     }, []);
-    const handleAddToCart = (product) => {
+    const handleAddToCart = (product: Product) => {
         setCartItems([...cartItems, product]);
     };
-    const handleRemoveFromCart = (id) => {
-        setCartItems(cartItems.splice(id, 1));
+    const handleRemoveFromCart = (id: number) => {
+        let array = [...cartItems];
+        array.splice(id, 1);
+        setCartItems(array);
     };
     return <>
         <div className="App">
