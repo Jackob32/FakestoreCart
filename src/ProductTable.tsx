@@ -1,6 +1,6 @@
 import {Product} from "./types";
 
-const ProductTable = ({products}: { products: Product[] }) => {
+const ProductTable = ({products, handleAddToCart}: { products: Product[], handleAddToCart:  (product: Product) => void}) => {
     const renderStars = (rate: number) => {
         const fullStars = Math.floor(rate); // Number of full stars
         const stars = [];
@@ -54,7 +54,7 @@ const ProductTable = ({products}: { products: Product[] }) => {
                                                 </div>
                                                 <div className="d-flex flex-column mt-4">
                                                     <button className="btn btn-outline-primary btn-sm mt-2"
-                                                            type="button" onClick={() => console.log(product)}>
+                                                            type="button" onClick={() => handleAddToCart(product)}>
                                                         Add to Cart
                                                     </button>
                                                 </div>
